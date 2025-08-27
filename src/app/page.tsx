@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import WeatherCard from "@/components/WeatherCard";
 import { ForecastResponse } from "@/components/types";
 import { useTheme } from "@/components/ThemeProvider";
+import { getWeatherData } from "@/services/weatherApiService";
 
-const API_KEY = "3b938407b1a648416a50f49ce29b570b";
 
 export default function Dashboard() {
   const [city, setCity] = useState("");
@@ -28,12 +28,12 @@ export default function Dashboard() {
 
     try {
       setLoading(true);
-      const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(
-          city
-        )}&appid=${API_KEY}&units=metric`
-      );
-      const data: ForecastResponse = await res.json();
+      // const res = await fetch(
+      //   `https://api.openweathermap.org/data/2.5/forecast?q=${
+      //     city
+      //   }&appid=${API_KEY}&units=metric`
+      // );
+      const data: ForecastResponse = await getWeatherData(city);
 
       if (data.cod === "200") {
         setSearchedCities((prev) => [data, ...prev]); 

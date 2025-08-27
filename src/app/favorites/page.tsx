@@ -4,8 +4,8 @@ import Link from "next/link";
 import WeatherCard from "@/components/WeatherCard";
 import { ForecastResponse } from "@/components/types";
 import { useTheme } from "@/components/ThemeProvider";
+import { getWeatherData } from "@/services/weatherApiService";
 
-const API_KEY = "3b938407b1a648416a50f49ce29b570b";
 
 export default function Favorites() {
   const [favorites, setFavorites] = useState<string[]>([]);
@@ -24,11 +24,12 @@ export default function Favorites() {
   const fetchWeatherForFavorites = async (cities: string[]) => {
     try {
       const promises = cities.map((c) =>
-        fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(
-            c
-          )}&appid=${API_KEY}&units=metric`
-        ).then((res) => res.json())
+        // fetch(
+        //   `https://api.openweathermap.org/data/2.5/forecast?q=${
+        //     c
+        //   }&appid=${API_KEY}&units=metric`
+        // ).then((res) => res.json())
+        getWeatherData(c)
       );
       const results: ForecastResponse[] = await Promise.all(promises);
       setWeatherData(results.filter((r) => r.cod === "200"));

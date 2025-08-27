@@ -37,7 +37,7 @@ export default function WeatherCard({
     });
   };
 
-  const cityLink = `/city/${encodeURIComponent(forecast.city.name)}`;
+  const cityLink = `/city/${forecast.city.name}`;
 
   return (
     <div className="space-y-4 p-4">
@@ -84,7 +84,6 @@ export default function WeatherCard({
           <div className="px-4 py-3 border-b">
             <div className="flex items-center justify-between">
               <div className="text-lg font-semibold">{formatDateHeading(date)}</div>
-              <div className="text-sm text-gray-600">{items.length} slots</div>
             </div>
 
             <div className="mt-3 grid grid-cols-4 gap-4 text-sm font-semibold text-white-700">

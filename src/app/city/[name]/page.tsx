@@ -4,8 +4,9 @@ import { useParams, useRouter } from "next/navigation";
 import WeatherCard from "@/components/WeatherCard";
 import { ForecastResponse } from "@/components/types";
 import { useTheme } from "@/components/ThemeProvider";
+import { getWeatherData } from "@/services/weatherApiService";
 
-const API_KEY = "3b938407b1a648416a50f49ce29b570b";
+
 
 export default function CityDetailPage() {
   const params = useParams();
@@ -24,12 +25,12 @@ export default function CityDetailPage() {
     if (!cityName) return;
     const fetchForecast = async () => {
       try {
-        const res = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(
-            cityName
-          )}&appid=${API_KEY}&units=metric`
-        );
-        const data: ForecastResponse = await res.json();
+        // const res = await fetch(
+        //   `https://api.openweathermap.org/data/2.5/forecast?q=${
+        //     cityName
+        //   }&appid=${API_KEY}&units=metric`
+        // );
+        const data: ForecastResponse = await getWeatherData(cityName);
         if (data.cod === "200") setForecast(data);
         else setForecast(null);
       } catch (err) {
