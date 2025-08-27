@@ -1,4 +1,3 @@
-// app/page.tsx
 "use client";
 import { useState, useEffect } from "react";
 import WeatherCard from "@/components/WeatherCard";
@@ -7,7 +6,7 @@ import { useTheme } from "@/components/ThemeProvider";
 
 const API_KEY = "3b938407b1a648416a50f49ce29b570b";
 
-export default function Home() {
+export default function Dashboard() {
   const [city, setCity] = useState("");
   const [searchedCities, setSearchedCities] = useState<ForecastResponse[]>([]);
   const [favorites, setFavorites] = useState<string[]>([]);
@@ -22,9 +21,8 @@ export default function Home() {
   const fetchForecast = async () => {
     if (!city.trim()) return;
 
-    // prevent duplicate search (case-insensitive match)
     if (searchedCities.some((f) => f.city.name.toLowerCase() === city.toLowerCase())) {
-      setCity(""); // clear input
+      setCity("");
       return;
     }
 
@@ -38,8 +36,8 @@ export default function Home() {
       const data: ForecastResponse = await res.json();
 
       if (data.cod === "200") {
-        setSearchedCities((prev) => [data, ...prev]); // add new city at front
-        setCity(""); // clear input
+        setSearchedCities((prev) => [data, ...prev]); 
+        setCity(""); 
       } else {
         console.warn("API error:", data);
         alert("City not found. Try another one.");

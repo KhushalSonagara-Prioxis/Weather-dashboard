@@ -16,7 +16,7 @@ export default function Navbar() {
       }`}
     >
       <Link href="/" className={pathname === "/" ? "font-bold" : ""}>
-        Home
+        Dashboard
       </Link>
       <Link href="/favorites" className={pathname === "/favorites" ? "font-bold" : ""}>
         Favourite

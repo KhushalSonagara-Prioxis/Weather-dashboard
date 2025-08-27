@@ -37,7 +37,6 @@ export default function WeatherCard({
     });
   };
 
-  // Link to detail page path
   const cityLink = `/city/${encodeURIComponent(forecast.city.name)}`;
 
   return (
