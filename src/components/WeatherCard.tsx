@@ -37,11 +37,9 @@ export default function WeatherCard({
     });
   };
 
-  const cityLink = `/city/${forecast.city.name}`;
-
   return (
-    <div className="space-y-4 p-4">
-      <Link href={cityLink} className="block">
+    <div className="space-y-4 p-4 ">
+      <Link href={`/city/${forecast.city.name}`} className="block">
         <div className="border p-4 shadow-sm flex items-center justify-between hover:shadow-md transition">
           <h2 className="text-2xl font-bold">{forecast.city.name}</h2>
 
