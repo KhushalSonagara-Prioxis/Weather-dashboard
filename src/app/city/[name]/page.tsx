@@ -53,7 +53,7 @@ export default function CityDetailPage() {
   return (
     <div
       className={`min-h-screen p-6 transition-colors ${
-        theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-50 text-black"
+        theme === "dark" ? "bg-black text-white" : "bg-gray-50 text-black"
       }`}
     >
       <div className="max-w-4xl mx-auto">

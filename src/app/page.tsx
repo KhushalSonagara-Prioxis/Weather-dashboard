@@ -62,7 +62,7 @@ export default function Dashboard() {
   return (
     <div
       className={`min-h-screen p-6 transition-colors ${
-        theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-50 text-black"
+        theme === "dark" ? "bg-black text-white" : "bg-white text-black"
       }`}
     >
       <div className="max-w-4xl mx-auto">
@@ -74,13 +74,12 @@ export default function Dashboard() {
             placeholder="Enter city"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && fetchForecast()}
-            className="border p-3 rounded w-full"
+            className="border p-3  w-full"
           />
           <button
             onClick={fetchForecast}
             disabled={loading}
-            className={`px-6 py-3 rounded text-white ${
+            className={`px-6 py-3  text-white ${
               loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"
             }`}
           >

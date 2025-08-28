@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import WeatherCard from "@/components/WeatherCard";
 import { ForecastResponse } from "@/components/types";
 import { useTheme } from "@/components/ThemeProvider";
@@ -54,14 +53,14 @@ export default function Favorites() {
 
   return (
     <div
-      className={`min-h-screen p-6 transition-colors ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-50 text-black"
+      className={`min-h-screen p-6 transition-colors ${theme === "dark" ? "bg-black text-white" : "bg-white text-black"
         }`}
     >
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-6">Favorite Cities (Today)</h1>
 
         {weatherData.length === 0 ? (
-          <p className={theme === "dark" ? "text-gray-400" : "text-gray-600"}>
+          <p className={theme === "dark" ? "text-white" : "text-black"}>
             No favorites yet.
           </p>
         ) : (

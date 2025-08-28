@@ -42,7 +42,7 @@ export default function WeatherCard({
   return (
     <div className="space-y-4 p-4">
       <Link href={cityLink} className="block">
-        <div className="border p-4 rounded-lg shadow-sm flex items-center justify-between hover:shadow-md transition">
+        <div className="border p-4 shadow-sm flex items-center justify-between hover:shadow-md transition">
           <h2 className="text-2xl font-bold">{forecast.city.name}</h2>
 
           <div
@@ -73,13 +73,13 @@ export default function WeatherCard({
 
 
       {entries.length === 0 && showOnlyToday && (
-        <div className="p-4 border rounded bg-white text-center text-gray-600">
+        <div className="p-4 border bg-white text-center text-black">
           No data for today.
         </div>
       )}
 
       {entries.map(([date, items]) => (
-        <div key={date} className="border rounded-lg shadow-md overflow-hidden">
+        <div key={date} className="border  shadow-md overflow-hidden">
 
           <div className="px-4 py-3 border-b">
             <div className="flex items-center justify-between">
@@ -98,7 +98,7 @@ export default function WeatherCard({
             {items.map((item) => (
               <div
                 key={item.dt_txt}
-                className="grid grid-cols-4 gap-4 items-center p-2 rounded"
+                className="grid grid-cols-4 gap-4 items-center p-2 "
               >
                 <div className="text-sm font-medium">{item.dt_txt.split(" ")[1]}</div>
 
